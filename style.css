@@ -1,0 +1,17 @@
+
+.titulo{
+    text-align: center;
+    font-size: 10rem;
+    margin: 2rem;
+
+}
+span{
+    color :rgb(245, 245, 7);
+    font-size: 8rem;
+    
+}
+
+button{
+    display: flex;
+    justify-content: center;
+}
