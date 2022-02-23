@@ -60,11 +60,39 @@ productos.push(new Producto("10", "Lenovo i3", 120000,"Computadoras"));
 productos.push(new Producto("11", "HP 240 G7", 50000,"Computadoras"));
 productos.push(new Producto("12", "Razer Blade 15", 400000,"Computadoras"));
 productos.push(new Producto("13", "Asus ZenBook ", 120000,"Computadoras"));
+/***DOM Y EVENTOS */
 
+let botonMostrar = document.getElementById("botonMostrar");
+let productosDisponibles = document.getElementById("productosDisponibles");
+
+botonMostrar.addEventListener('click', () => {
+  productos.forEach((producto,index) => {
+    productosDisponibles.innerHTML += `
+      <div class="card mb-3 bg-dark text-white card border-light" id="${index}" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="img/tecnoAR.png" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">${producto.nombre}</h5>
+              <p class="card-text">Precio:$${producto.precio}</p>
+              <p class="card-text"><small class="text-muted">${producto.categoria}</small></p>
+              <button class="btn btn-warning">Agregar Al Carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    `
+    
+  });
+});
 //MOSTRAR PRODUCTOS
 
 function mostrarProductos(){
-    let mostrar = prompt("Desea Conocer nuestra lista de Productos disponibles? SI/NO");
+    let mostrar = prompt("Desea Conocer nuestra lista de Productos disponibles? SI/NO").toLocaleUpperCase();
+    alert("Tambien haciendo Click al Boton en pantalla,Podras ver nuestros productos disponibles")
     if(mostrar == "SI" ){
       productos.forEach(function(lista){
           console.log(lista)
@@ -74,7 +102,7 @@ function mostrarProductos(){
     alert("No hay Problema.Vuelvas prontos")
 }else{
     alert("Verifique si escribio bien las opciones")
-}
+    mostrar = prompt("Desea Conocer nuestra lista de Productos disponibles? SI/NO").toLocaleUpperCase();}
 }
 function filtrarPorCategorias(){
     let opcion = parseInt(prompt("Si desea Filtrar por categoria Celulares ingrese : 1\nSi desea Filtrar por categoria Computadoras disponibles ingrese : 2"))
@@ -124,7 +152,7 @@ function ordernarProducto (){
     console.log(productos)}
 /*REALIZAR PEDIDO */
 function pedidoProducto() {
-  while (!producto || producto == 0 || producto > 4) {
+  while (!producto || producto == 0 || producto > 15) {
     producto = parseInt(
       prompt(
         "¿Qué producto desea comprar?:\n 1: Samsung s22 ($200000)\n 2: Iphone 13 ($250000)\n 3: Motorola Edge 20 ($100000)\n 4: Xiamomi Mi 10 Pro ($110000)\n 5: Samsung Galaxy Z Flip3 ($160000)\n 6: iPhone SE ($140000)\n 7: Moto G200 ($100000)\n 8: Nokia 1100 2023($85000)\n 9: Mac Book PRO ($300000)\n 10: Lenovo i3 ($120000)\n 11: HP 240 G7 ($50000)\n 12: Razer Blade 15 ($400000)\n 13: Asus ZenBook ($120000)"
@@ -230,3 +258,23 @@ pedido.calcularIva();
 pedido.calcularEnvio();
 pedido.calcularTotal();
 mostrarCarrito();
+
+
+
+/****DOM Y EVENTOS****/
+/*
+
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="..." class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>*/
