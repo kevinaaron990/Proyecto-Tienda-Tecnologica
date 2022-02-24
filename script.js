@@ -85,7 +85,7 @@ botonMostrar.addEventListener('click', () => {
       </div>
 
     `
-    
+    botonMostrar.reset();
   });
 });
 //MOSTRAR PRODUCTOS
